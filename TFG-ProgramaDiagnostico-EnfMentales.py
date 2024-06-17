@@ -25,7 +25,7 @@
 ##### El script está disponible tanto en formato .py
 ##### REPOSITORIO DEL CÓDIGO: https://github.com/Bioinf-Biomedicina-IDHG/TFG
 
-##### Ejecución:
+##### Ejecución (Windows 10 v o superior):
 ##### 1.- Descargue la carpeta comprimida
 ##### 2.- Descomprima la carpeta
 ##### 3.- Instale python 3.0 o superior (si no lo tiene ya instalado)
