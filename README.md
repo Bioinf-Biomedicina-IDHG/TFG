@@ -15,7 +15,7 @@
 
 ##### Este trabajo ha sido desarrollado en Python 3.12.3v, empleando Jupyter Notebook (https://www.anaconda.com/).
 ##### El script está disponible tanto en formato .py
-##### REPOSITORIO DEL CÓDIGO: (enlace de Github)
+##### REPOSITORIO DEL CÓDIGO: https://github.com/Bioinf-Biomedicina-IDHG/TFG
 
 ##### Ejecución:
 ##### 1.- Descargue la carpeta comprimida
