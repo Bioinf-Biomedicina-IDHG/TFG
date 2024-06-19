@@ -18,9 +18,10 @@
 ##### REPOSITORIO DEL CÓDIGO: https://github.com/Bioinf-Biomedicina-IDHG/TFG
 
 ##### Ejecución (Windows 10 v o superior):
-##### 1.- Descargue la carpeta comprimida
-##### 2.- Descomprima la carpeta
-##### 3.- Instale python 3.0 o superior (si no lo tiene ya instalado)
-##### 4.- Coloquese dentro de la carpeta
+##### 1.- Descargar la carpeta comprimida
+##### 2.- Descomprimir la carpeta
+##### 3.- Instalar python 3.0 o superior (si no lo tiene ya instalado)
+##### 4.- Situarse en el interior de la carpeta
 ##### 5.- Botón derecho -> Abrir Terminal 
-##### 6.- python TFG-ProgramaDiagnostico-EnfMentales.py
+##### 6.- Escribir el siguiente comando:
+#####            python TFG-ProgramaDiagnostico-EnfMentales.py
