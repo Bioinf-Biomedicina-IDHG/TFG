@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[55]:
+# In[7]:
 
 
 ################################################################################################################################
@@ -26,12 +26,13 @@
 ##### REPOSITORIO DEL CÓDIGO: https://github.com/Bioinf-Biomedicina-IDHG/TFG
 
 ##### Ejecución (Windows 10 v o superior):
-##### 1.- Descargue la carpeta comprimida
-##### 2.- Descomprima la carpeta
-##### 3.- Instale python 3.0 o superior (si no lo tiene ya instalado)
-##### 4.- Coloquese dentro de la carpeta
+##### 1.- Descargar la carpeta comprimida
+##### 2.- Descomprimir la carpeta (7zpi, WinRAR o similares)
+##### 3.- Instalar python 3.0 o superior (si no lo tiene ya instalado)
+##### 4.- Situarse en el interior de la carpeta
 ##### 5.- Botón derecho -> Abrir Terminal 
-##### 6.- python TFG-ProgramaDiagnostico-EnfMentales.py
+##### 6.- Escribir el siguiente comando:
+#####         python TFG-ProgramaDiagnostico-EnfMentales.py
 
 ################################################################################################################################
 ################################################################################################################################
@@ -146,14 +147,14 @@ def mostrar_formulario():
     menu_genero.configure(bg="aquamarine")
     
     
-    #### ENTRADA DE POSIBLES ENFERMEDADES PREVIAS
-    etiqueta_enf_previas = Label(ventana_formulario, text="ENFERMEDADES PREVIAS", bg="white").grid(row=0, column=4, padx=10, pady=5, sticky='w')
+    #### ENTRADA DE POSIBLES CONDICIONANTES PREVIOS
+    etiqueta_enf_previas = Label(ventana_formulario, text="CONDICIONANTES PREVIOS", bg="white").grid(row=0, column=4, padx=10, pady=5, sticky='w')
 
     global lista_enf   # declaración de variable global para poder pasarla entre las ventanas
     lista_enf = ""   # la incializamos vacía
     
     # Aquí creamos una entrada para guardar el resultado (si hay)
-    resultado_enf_previas = Entry(ventana_formulario, width=22, bg="aquamarine", fg="dark blue") 
+    resultado_enf_previas = Entry(ventana_formulario,width=22,bg="aquamarine", fg="dark blue") 
     resultado_enf_previas.grid(row=1, column=5, padx=10, pady=5)
     
     # Función para actualizar el valor de la entrada de enfermedades previas
@@ -165,7 +166,7 @@ def mostrar_formulario():
     # Función para crear la ventana una vez que se clica en el botón
     def mostrar_ventana_enf_previas():
         ventana_enf_previas = Toplevel() 
-        ventana_enf_previas.title("Lista de Enfermedades Previas")    
+        ventana_enf_previas.title("Lista de Condicionantes Previos")    
         ventana_enf_previas.geometry(posicion_formulario)
         ventana_enf_previas.configure(bg="white")
         ventana_enf_previas.iconbitmap("iconos/Pantallas.ico")
@@ -187,8 +188,8 @@ def mostrar_formulario():
         frame_enf_previas.rowconfigure(0,weight=1)
         
         # Lista de enfermedades
-        lista_enfermedades = ['Alzheimer','Bebé Prematuro','Cáncer','Diabetes','Enfermedad Autoinmunitaria','Enfermedad Coronaria',
-                              'Esclerosis múltiple','EPOC','Esclerosis Tuberosa','Hipertiroidismo','Hipotiroidismo',
+        lista_enfermedades = ['Alzhéimer','Bebé Prematuro','Cáncer','Diabetes','Enfermedad Autoinmunitaria','Enfermedad Coronaria',
+                              'EPOC','Esclerosis múltiple','Esclerosis Tuberosa','Hipertiroidismo','Hipotiroidismo',
                               'Párkinson','Síndrome del cromosoma X frágil','Síndrome de Rett','VIH/SIDA']
         
         # Creamos los botones (checkboxes)
@@ -219,7 +220,7 @@ def mostrar_formulario():
         canvas_enf_previas.bind_all("<MouseWheel>",_on_mousewheel)
         
     # Botón para mostrar las enfermedades previas
-    boton_enf_previas = Button(ventana_formulario, text="Lista de enfermedades", command=mostrar_ventana_enf_previas, bg="aquamarine")
+    boton_enf_previas = Button(ventana_formulario, text="Lista de condicionantes", command=mostrar_ventana_enf_previas, bg="aquamarine")
     boton_enf_previas.grid(row=0, column=5, padx=10, pady=5,sticky='w')
     
     # Inclusión de celdas vacías por estética en la ventana del formulario
@@ -314,7 +315,7 @@ def mostrar_formulario():
         canvas_depresion.bind_all("<MouseWheel>",_on_mousewheel)
         
     # Botón para mostrar el test de depresión
-    boton_depresion = Button(ventana_formulario, text="Trastorno Depresivo Mayor", command=mostrar_ventana_depresion, bg="aquamarine")
+    boton_depresion = Button(ventana_formulario, text="Trastorno Depresivo Mayor (TDM)", command=mostrar_ventana_depresion, bg="aquamarine")
     boton_depresion.grid(row=5, column=0, padx=10, pady=5,sticky='w')
     
 
@@ -394,7 +395,7 @@ def mostrar_formulario():
         canvas_esquizofrenia.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test de esquizofrenia
-    boton_esquizofrenia = Button(ventana_formulario, text="Trastorno Esquizoide", command=mostrar_ventana_esquizofrenia, bg="aquamarine")
+    boton_esquizofrenia = Button(ventana_formulario, text="Trastorno Esquizoide (TE)", command=mostrar_ventana_esquizofrenia, bg="aquamarine")
     boton_esquizofrenia.grid(row=6, column=0, padx=10, pady=5,sticky='w')
     
 
@@ -404,13 +405,13 @@ def mostrar_formulario():
     resultado_bipolaridad_maniaco = 0      # la incializamos en cero
     resultado_bipolaridad_depresivo = 0
     
-    etiqueta_B_maniaco = Label(ventana_formulario, text="Episodio Maníaco", bg="white").grid(row=7, column=1, padx=10, pady=5, sticky='w')
+    etiqueta_B_maniaco = Label(ventana_formulario, text="Episodio Maníaco", bg="white").grid(row=8, column=1, padx=10, pady=5, sticky='w')
     resultado_B_maniaco = Entry(ventana_formulario, width=22, bg="aquamarine", fg="dark blue")   # entrada donde se guarda el resultado del test
-    resultado_B_maniaco.grid(row=7, column=2, padx=10, pady=5)
+    resultado_B_maniaco.grid(row=8, column=2, padx=10, pady=5)
 
-    etiqueta_B_depresivo = Label(ventana_formulario, text="Episodio Depresivo", bg="white").grid(row=7, column=3, padx=10, pady=5, sticky='w')
+    etiqueta_B_depresivo = Label(ventana_formulario, text="Episodio Depresivo", bg="white").grid(row=8, column=3, padx=10, pady=5, sticky='w')
     resultado_B_depresivo = Entry(ventana_formulario, width=22, bg="aquamarine", fg="dark blue")   # entrada donde se guarda el resultado del test
-    resultado_B_depresivo.grid(row=7, column=4, padx=10, pady=5)
+    resultado_B_depresivo.grid(row=8, column=4, padx=10, pady=5)
 
 
     # Función para actualizar el valor de la entrada
@@ -510,15 +511,15 @@ def mostrar_formulario():
         canvas_bipolaridad.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test de bipolaridad
-    boton_bipolaridad = Button(ventana_formulario, text="Trastorno de Bipolaridad", command=mostrar_ventana_bipolaridad, bg="aquamarine")
-    boton_bipolaridad.grid(row=7, column=0, padx=10, pady=5,sticky='w')
+    boton_bipolaridad = Button(ventana_formulario, text="Trastorno de Bipolaridad (TB)", command=mostrar_ventana_bipolaridad, bg="aquamarine")
+    boton_bipolaridad.grid(row=8, column=0, padx=10, pady=5,sticky='w')
     
     # ESPECTRO AUTISTA
     global resultado_autismo   # declaración de variable global para poder pasarla entre las ventanas
     resultado_autismo = 0      # la incializamos en cero
     
     resultado_AUT = Entry(ventana_formulario, width=22, bg="aquamarine", fg="dark blue")   # entrada donde se guarda el resultado del test
-    resultado_AUT.grid(row=8, column=1, padx=10, pady=5)
+    resultado_AUT.grid(row=7, column=1, padx=10, pady=5)
 
     # Función para actualizar el valor de la entrada
     def actualizar_autismo(valor):
@@ -584,8 +585,8 @@ def mostrar_formulario():
         canvas_autismo.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test de autismo
-    boton_autismo = Button(ventana_formulario, text="Trastorno del Espectro Autista", command=mostrar_ventana_autismo, bg="aquamarine")
-    boton_autismo.grid(row=8, column=0, padx=10, pady=5,sticky='w')
+    boton_autismo = Button(ventana_formulario, text="Trastorno del Espectro Autista (TEA)", command=mostrar_ventana_autismo, bg="aquamarine")
+    boton_autismo.grid(row=7, column=0, padx=10, pady=5,sticky='w')
     
     # TOC
     global resultado_toc   # declaración de variable global para poder pasarla entre las ventanas
@@ -661,7 +662,7 @@ def mostrar_formulario():
         canvas_toc.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test de toc
-    boton_toc = Button(ventana_formulario, text="Trastorno Obsesivo-Compulsivo", command=mostrar_ventana_toc, bg="aquamarine")
+    boton_toc = Button(ventana_formulario, text="Trastorno Obsesivo-Compulsivo (TOC)", command=mostrar_ventana_toc, bg="aquamarine")
     boton_toc.grid(row=9, column=0, padx=10, pady=5,sticky='w')
 
     # ANSIEDAD
@@ -741,7 +742,7 @@ def mostrar_formulario():
         canvas_aeg.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test de ansiedad
-    boton_aeg = Button(ventana_formulario, text="Trastorno de Ansiedad Generalizada", command=mostrar_ventana_aeg, bg="aquamarine")
+    boton_aeg = Button(ventana_formulario, text="Trastorno de Ansiedad Generalizada (TAG)", command=mostrar_ventana_aeg, bg="aquamarine")
     boton_aeg.grid(row=10, column=0, padx=10, pady=5,sticky='w')
     
     ###### ENTRADA ANALISIS GENÉTICO
@@ -815,7 +816,7 @@ def mostrar_formulario():
         canvas_genes_d.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test de depresión
-    boton_genes_d = Button(ventana_formulario, text="Trastorno Depresivo Mayor", command=mostrar_ventana_genes_depresion, bg="aquamarine")
+    boton_genes_d = Button(ventana_formulario, text="Trastorno Depresivo Mayor (TDM)", command=mostrar_ventana_genes_depresion, bg="aquamarine")
     boton_genes_d.grid(row=5, column=5, padx=10, pady=5,sticky='w')
 
 # GENES ESQUIZOFRENIA
@@ -885,7 +886,7 @@ def mostrar_formulario():
         canvas_genes_e.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test
-    boton_genes_e = Button(ventana_formulario, text="Trastorno Esquizoide", command=mostrar_ventana_genes_e, bg="aquamarine")
+    boton_genes_e = Button(ventana_formulario, text="Trastorno Esquizoide (TE)", command=mostrar_ventana_genes_e, bg="aquamarine")
     boton_genes_e.grid(row=6, column=5, padx=10, pady=5,sticky='w')
 
     # GENES BIPOLARIDAD
@@ -893,7 +894,7 @@ def mostrar_formulario():
     resultado_genes_b = 0      # la incializamos en cero
     
     resultado_G_b = Entry(ventana_formulario, width=22, bg="aquamarine", fg="dark blue")   # entrada donde se guarda el resultado del test
-    resultado_G_b.grid(row=7, column=6, padx=10, pady=5)
+    resultado_G_b.grid(row=8, column=6, padx=10, pady=5)
 
     # Función para actualizar el valor de la entrada
     def actualizar_rg_b(valor):
@@ -926,7 +927,7 @@ def mostrar_formulario():
         frame_genes_b.rowconfigure(0,weight=1)
         
         # Entrada de las preguntas y la respuesta
-        genes_b = ["ANK3","BDNF","CACNA1C","CLOCK","COMT","DGKH","DRD1","GAD1","GRIN2A","GSK3B","INS","MTHFR","NR3C1","NRG1","RELN","S100B","SLC6A4","ZNF804A"]
+        genes_b = ["ANK3","BDNF","CACNA1C","CLOCK","COMT","DGKH","DRD1","GAD1","GRIN2A","GSK3B","HTR2A","INS","MTHFR","NR3C1","NR3C1","NRG1","RELN","S100B","SLC6A4","ZNF804A"]
 
         check_vars = [BooleanVar() for _ in genes_b]
         for i, criterio in enumerate(genes_b):
@@ -955,15 +956,15 @@ def mostrar_formulario():
         canvas_genes_b.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test
-    boton_genes_b = Button(ventana_formulario, text="Trastorno Bipolar", command=mostrar_ventana_genes_b, bg="aquamarine")
-    boton_genes_b.grid(row=7, column=5, padx=10, pady=5,sticky='w')
+    boton_genes_b = Button(ventana_formulario, text="Trastorno Bipolar (TB)", command=mostrar_ventana_genes_b, bg="aquamarine")
+    boton_genes_b.grid(row=8, column=5, padx=10, pady=5,sticky='w')
 
     # GENES AUTISMO
     global resultado_genes_a   # declaración de variable global para poder pasarla entre las ventanas
     resultado_genes_a = 0      # la incializamos en cero
     
     resultado_G_a = Entry(ventana_formulario, width=22, bg="aquamarine", fg="dark blue")   # entrada donde se guarda el resultado del test
-    resultado_G_a.grid(row=8, column=6, padx=10, pady=5)
+    resultado_G_a.grid(row=7, column=6, padx=10, pady=5)
 
     # Función para actualizar el valor de la entrada
     def actualizar_rg_a(valor):
@@ -1025,8 +1026,8 @@ def mostrar_formulario():
         canvas_genes_a.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test
-    boton_genes_a = Button(ventana_formulario, text="Trastorno del Espectro Autista", command=mostrar_ventana_genes_a, bg="aquamarine")
-    boton_genes_a.grid(row=8, column=5, padx=10, pady=5,sticky='w')
+    boton_genes_a = Button(ventana_formulario, text="Trastorno del Espectro Autista (TEA)", command=mostrar_ventana_genes_a, bg="aquamarine")
+    boton_genes_a.grid(row=7, column=5, padx=10, pady=5,sticky='w')
     
     # GENES TOC
     global resultado_genes_t   # declaración de variable global para poder pasarla entre las ventanas
@@ -1095,7 +1096,7 @@ def mostrar_formulario():
         canvas_genes_t.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test
-    boton_genes_t = Button(ventana_formulario, text="Trastorno Obsesivo-Compulsivo", command=mostrar_ventana_genes_t, bg="aquamarine")
+    boton_genes_t = Button(ventana_formulario, text="Trastorno Obsesivo-Compulsivo (TOC)", command=mostrar_ventana_genes_t, bg="aquamarine")
     boton_genes_t.grid(row=9, column=5, padx=10, pady=5,sticky='w')
 
     # GENES AEG
@@ -1165,7 +1166,7 @@ def mostrar_formulario():
         canvas_genes_aeg.bind_all("<MouseWheel>",_on_mousewheel)
 
     # Botón para mostrar el test
-    boton_genes_aeg = Button(ventana_formulario, text="Trastorno de Ansiedad Generalizada", command=mostrar_ventana_genes_aeg, bg="aquamarine")
+    boton_genes_aeg = Button(ventana_formulario, text="Trastorno de Ansiedad Generalizada (TAG)", command=mostrar_ventana_genes_aeg, bg="aquamarine")
     boton_genes_aeg.grid(row=10, column=5, padx=10, pady=5,sticky='w')
 
     
@@ -1274,10 +1275,15 @@ def mostrar_formulario():
             g_especificos_depresion = ["FKBP5","CYP2D6","TPH2","DRD2","GRM7","CRHR1","PCLO"]
 
             g_comunes_esquizoide = ["ANK3","CACNA1C","COMT","GRM5","HTR2A","MTHFR","NRG1","NRXN1","SHANK3"]
-            g_especificos_esquizoide = ["AKT1","ABCB1","AVPR1A","BACE1","BECN1","BRD1","CHI3L1","CHRNA7","CSMD1","DAOA","DISC1","DISC2","DRD3","FEZ1","FOXP2","GNAS","GRIA1","KMO","LRRTM1","MAGI2","MAP2K7","MAP6","MBP","NCAM1","NLGN2","NOS1AP","NOTCH4","NR4A2","PPP1R1B","PPP3R1","PRODH","PTGS2","RTN4R","SETD1A","SLC1A1","SRGAP3","SRR","SYNGAP1","TAAR1","TBX1","TCF4","YWHAH","ZDHHC8","ZIC2"]
+            g_especificos_esquizoide = ["ABCB1","AKT1","AVPR1A","BACE1","BECN1","BRD1","CHI3L1","CHRNA7","CSMD1","DAOA",
+                                        "DISC1","DISC2","DRD3","FEZ1","FOXP2","GNAS","GRIA1","KMO","LRRTM1","MAGI2","MAP2K7",
+                                        "MAP6","MBP","NCAM1","NLGN2","NOS1AP","NOTCH4","NR4A2","PPP1R1B","PPP3R1","PRODH",
+                                        "PTGS2","RTN4R","SETD1A","SLC1A1","SRGAP3","SRR","SYNGAP1","TAAR1","TBX1","TCF4",
+                                        "YWHAH","ZDHHC8","ZIC2"]
             
-            g_comunes_bipolar = ["ANK3","COMT","MTHFR","NRG1","SLC6A4"]
-            g_especificos_bipolar = ["BDNF","CACNA1C","CLOCK","DGKH","DRD1","GAD1","GRIN2A","GSK3B","INS","NR3C1","RELN","S100B","ZNF804A"]
+            g_comunes_bipolar = ["ANK3","COMT","MTHFR","NRG1","SLC6A4","HTR2A","CACNA1C"]
+            g_especificos_bipolar = ["BDNF","CACNA1C","CLOCK","DGKH","DRD1","GAD1","GRIN2A","GSK3B",
+                                     "INS","NR3C1","RELN","S100B","ZNF804A"]
             
             g_comunes_autismo = ["NRXN1","SHANK3"]
             g_especificos_autismo = ["CHD8","CNTNAP2","NLGN3","SCN1A"]
@@ -1329,44 +1335,46 @@ def mostrar_formulario():
             archivo_salida.write('\n\tCondicionantes enfermedades previas: \n')
             
             # Aquí escribimos los condicionantes para las enfermedades previas
-            if "Parkinson" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario del Párkinson.\n")
-            if "Alzheimer" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario del Alzheimer.\n")
-            if "Diabetes" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario de la Diabetes.\n")
-            if "Enfermedad Coronaria" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario de la Enfermedad Coronaria.\n")
-            if "EPOC" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario de la EPOC.\n")
-            if "Cáncer" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario del Cáncer.\n")
-            if "Esclerosis Tuberosa" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario de la Esclerosis Tuberosa.\n")
-            if "VIH/SIDA" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario del VIH/SIDA.\n")
-            if "Hipotiroidismo" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario del Hipotiroidismo.\n")
-            if "Hipertiroidismo" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario del Hipertiroidismo.\n")
-            if "Esclerosis Múltiple" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario de la Esclerosis Múltiple.\n")
+            if "Alzhéimer" in enfermedades_previas:
+                archivo_salida.write("\t\tEl Alzhéimer puede desencadenar TDM o TAG.\n")
             if "Bebé Prematuro" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Depresión Mayor o Ansiedad Generalizada puede ser efecto secundario de Bebé Prematuro.\n")
+                archivo_salida.write("\t\tEl nacimiento prematuro puede desencadenar TEA en la infancia.\n")
+            if "Cáncer" in enfermedades_previas:
+                archivo_salida.write("\t\tEl Cáncer puede desencadenar TDM o TAG.\n") 
+            if "Diabetes" in enfermedades_previas:
+                archivo_salida.write("\t\tLa Diabetes puede desencadenar TDM o TAG.\n")
+            if "Enfermedad Autoinmune" in enfermedades_previas:
+                archivo_salida.write("\t\tLas enferemedades autoinmunes pueden desencadenar TDM o TAG.\n") 
+            if "Enfermedad Coronaria" in enfermedades_previas:
+                archivo_salida.write("\t\tLas enferemedades coronarias pueden desencadenar TDM o TAG.\n") 
+            if "EPOC" in enfermedades_previas:
+                archivo_salida.write("\t\tLa EPOC puede desencadenar TDM o TAG.\n")
+            if "Esclerosis Múltiple" in enfermedades_previas:
+                archivo_salida.write("\t\tLa Esclerosis Múltiple puede desencadenar TDM, TAG o trastornos psicóticos.\n")
+            if "Esclerosis Tuberosa" in enfermedades_previas:
+                archivo_salida.write("\t\tLa Esclerosis Tuberosa puede desencadenar TDM o TAG.\n")
+            if "Hipertiroidismo" in enfermedades_previas:
+                archivo_salida.write("\t\tEl Hipertiroidismo puede desencadenar TDM o TAG.\n")
+            if "Hipotiroidismo" in enfermedades_previas:
+                archivo_salida.write("\t\tEl Hipotiroidismo puede desencadenar TDM o TAG.\n")
+            if "Parkinson" in enfermedades_previas:
+                archivo_salida.write("\t\tEl Párkinson puede desencadenar TDM o TAG.\n")
             if "Síndrome del cromosoma X frágil" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Trastorno del Espectro Autista puede ser efecto secundario del Síndrome del cromosoma X frágil.\n")
+                archivo_salida.write("\t\tEl Síndrome del cromosoma X frágil puede desencadenar TEA.\n")
             if "Síndrome de Rett" in enfermedades_previas:
-                archivo_salida.write("\t\tLa presencia de Trastorno del Espectro Autista puede ser efecto secundario del Síndrome del Rett.\n")
+                archivo_salida.write("\t\tEl Síndrome de Rett puede desencadenar TEA.\n")
+            if "VIH/SIDA" in enfermedades_previas:
+                archivo_salida.write("\t\tEl VIH/SIDA puede desencadenar TDM o TAG.\n")
                    
             archivo_salida.write('\n\nTEST PSICOLOGICO\n\n')
             
             archivo_salida.write('Trastorno Depresivo Mayor (TDM): '+ str(tiene_depresion_psico))
             archivo_salida.write('\n\tResultado del test: ' + text_resultado_d)
             
-            archivo_salida.write('\nTrastorno Esquizoidet: \t' + str(tiene_esquizofrenia_psico))
+            archivo_salida.write('\nTrastorno Esquizoide (TE): \t' + str(tiene_esquizofrenia_psico))
             archivo_salida.write('\n\tResultado del test:' + text_resultado_e)
             
-            archivo_salida.write('\nResultado Bipolaridad:' + str(tiene_bipolaridad_psico))
+            archivo_salida.write('\nResultado Bipolaridad (TB):' + str(tiene_bipolaridad_psico))
             archivo_salida.write('\n\tEpisodio Maníaco: \t' + text_resultado_b_maniaco)
             archivo_salida.write('\n\tEpisodio Depresivo: \t' + text_resultado_b_depresivo)
             
@@ -1391,22 +1399,22 @@ def mostrar_formulario():
                     especifico_d = True
                     
             if comun_d == True and especifico_d == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes comunes y específicos.')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores comunes y específicos.')
             if comun_d == True and especifico_d == False:
-                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de genes comunes a otros trastornos mentales. ')
+                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de marcadores comunes a otros trastornos mentales. ')
             if comun_d == False and especifico_d == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes específicos. Ausencia de genes comunes. ')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores específicos. Ausencia de marcadores comunes. ')
             
             if "HTR2A" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen HTR2A es común a TDM, Esquizofrenia, TOC y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador HTR2A es común a TDM, TE, TB y TOC.')
             if "SLC6A4" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen SLC6A4 es común a TDM, TOC, Esquizofrenia y TAG.')
+                archivo_salida.write('\n\t\tEl marcador SLC6A4 es común a TDM, TE, TOC y TAG.')
             if "CACNA1C" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen CACNA1C es común a TDM, Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador CACNA1C es común a TDM, TE y TB.')
             if "GRM5" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen GRM5 es común a TDM y Esquizofrenia.')      
+                archivo_salida.write('\n\t\tEl marcador GRM5 es común a TDM y TE.')      
                 
-            archivo_salida.write('\nTrastorno Esquizoide: ' + genes_seleccionados_e)
+            archivo_salida.write('\nTrastorno Esquizoide (TE): ' + genes_seleccionados_e)
             
             for i in g_comunes_esquizoide:
                 if i in genes_seleccionados_e:
@@ -1416,32 +1424,32 @@ def mostrar_formulario():
                     especifico_e = True
                     
             if comun_e == True and especifico_e == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes comunes y específicos.')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores comunes y específicos.')
             if comun_e == True and especifico_e == False:
-                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de genes comunes a otros trastornos mentales. ')
+                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de marcadores comunes a otros trastornos mentales. ')
             if comun_e == False and especifico_e == True:
-                archivo_salida.write('\n\tCondicionante genético de DETERMINANTE.\n\tPresencia de genes específicos. Ausencia de genes comunes. ')
+                archivo_salida.write('\n\tCondicionante genético de DETERMINANTE.\n\tPresencia de marcadores específicos. Ausencia de marcadores comunes. ')
             
             if "HTR2A" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen HTR2A es común a TDM, Esquizofrenia, TOC y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador HTR2A es común a TDM, TE, TB y TOC.')
             if "NRXN1" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen NRXN1 es común a  Esquizofrenia y TEA.')
+                archivo_salida.write('\n\t\tEl marcador NRXN1 es común a  TE y TEA.')
             if "CACNA1C" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen CACNA1C es común a TDM, Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador CACNA1C es común a TDM, TE y TB.')
             if "GRM5" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen GRM5 es común a TDM y Esquizofrenia.')
+                archivo_salida.write('\n\t\tEl marcador GRM5 es común a TDM y TE.')
             if "SHANK3" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen SHANK3 es común a Esquizofrenia y TEA.')
+                archivo_salida.write('\n\t\tEl marcador SHANK3 es común a TE y TEA.')
             if "MTHFR" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen MTHFR es común a Esquizofrenia y Trastorno Bipolar.')  
+                archivo_salida.write('\n\t\tEl marcador MTHFR es común a TB y TE.')  
             if "COMT" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen COMT es común a Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador COMT es común a TB y TE.')
             if "ANK3" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen ANK3 es común a Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador ANK3 es común a TB y TE.')
             if "NRG1" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen NRG1 es común a Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador NRG1 es común a TB y TE.')
                 
-            archivo_salida.write('\nTrastorno Bipolar: ' + genes_seleccionados_b)
+            archivo_salida.write('\nTrastorno Bipolar (TB): ' + genes_seleccionados_b)
             
             for i in g_comunes_bipolar:
                 if i in genes_seleccionados_b:
@@ -1451,26 +1459,26 @@ def mostrar_formulario():
                     especifico_b = True
                     
             if comun_b == True and especifico_b == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes comunes y específicos.')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores comunes y específicos.')
             if comun_b == True and especifico_b == False:
-                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de genes comunes a otros trastornos mentales. ')
+                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de marcadores comunes a otros trastornos mentales. ')
             if comun_b == False and especifico_b == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes específicos. Ausencia de genes comunes. ')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores específicos. Ausencia de marcadores comunes. ')
             
             if "HTR2A" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen HTR2A es común a TDM, Esquizofrenia, TOC y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador HTR2A es común a TDM, TE, TB y TOC.')
             if "SLC6A4" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen SLC6A4 es común a TDM, TOC, Esquizofrenia y TAG.')
+                archivo_salida.write('\n\t\tEl marcador SLC6A4 es común a TDM, TB, TOC y TAG.')
             if "CACNA1C" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen CACNA1C es común a TDM, Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador CACNA1C es común a TDM, TE y TB.')
             if "MTHFR" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen MTHFR es común a Esquizofrenia y Trastorno Bipolar.')  
+                archivo_salida.write('\n\t\tEl marcador MTHFR es común a TE y TB.')  
             if "COMT" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen COMT es común a Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador COMT es común a TE y TB.')
             if "ANK3" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen ANK3 es común a Esquizofrenia y Trastorno Bipolar.')
+                archivo_salida.write('\n\t\tEl marcador ANK3 es común a TE y TB.')
             if "NRG1" in genes_seleccionados_d:
-                archivo_salida.write('\n\t\tEl gen NRG1 es común a Esquizofrenia y Trastorno Bipolar.')  
+                archivo_salida.write('\n\t\tEl marcador NRG1 es común a TE y TB.')  
                 
             archivo_salida.write('\nTrastorno del Espectro Autista (TEA): ' + genes_seleccionados_a)
             
@@ -1482,16 +1490,16 @@ def mostrar_formulario():
                     especifico_a = True
                     
             if comun_a == True and especifico_a == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes comunes y específicos.')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores comunes y específicos.')
             if comun_a == True and especifico_a == False:
-                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de genes comunes a otros trastornos mentales. ')
+                archivo_salida.write('\n\tCondicionante genético NO DETERMINANTE.\n\tPresencia de marcadores comunes a otros trastornos mentales.')
             if comun_a == False and especifico_a == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes específicos. Ausencia de genes comunes. ')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores específicos. Ausencia de marcadores comunes. ')
             
             if "NRXN1" in genes_seleccionados_a:
-                archivo_salida.write('\n\t\tEl gen NRXN1 es común a  Esquizofrenia y TEA.')
+                archivo_salida.write('\n\t\tEl marcador NRXN1 es común a  TE y TEA.')
             if "SHANK3" in genes_seleccionados_a:
-                archivo_salida.write('\n\t\tEl gen SHANK3 es común a Esquizofrenia y TEA.') 
+                archivo_salida.write('\n\t\tEl marcador SHANK3 es común a TE y TEA.') 
                 
             archivo_salida.write('\nTrastorno Obsesivo-Compulsivo (TOC): ' + genes_seleccionados_t)
             
@@ -1500,12 +1508,12 @@ def mostrar_formulario():
                     comun_t = True
                     
             if comun_t == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes comunes y ausencia de genes específicos hasta la fecha.')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores comunes y ausencia de marcadores específicos hasta la fecha.')
             
             if "SLC6A4" in genes_seleccionados_t:
-                archivo_salida.write('\n\t\tEl gen SLC6A4 es común a TDM, TOC, Esquizofrenia y TAG.')
+                archivo_salida.write('\n\t\tEl marcador SLC6A4 es común a TDM, TE, TOC y TAG.')
             if "HTR2A" in genes_seleccionados_t:
-                archivo_salida.write('\n\t\tEl gen HTR2A es común a TDM, Esquizofrenia, TOC y Trasporno Bipolar.') 
+                archivo_salida.write('\n\t\tEl marcador HTR2A es común a TDM, TE, TB y TOC.') 
                 
             archivo_salida.write('\nTrastorno de Ansiedad Generalizada (TAG): ' + genes_seleccionados_aeg)
             
@@ -1514,10 +1522,10 @@ def mostrar_formulario():
                     comun_aeg = True
                     
             if comun_aeg == True:
-                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de genes comunes y ausencia de genes específicos hasta la fecha.')
+                archivo_salida.write('\n\tCondicionante genético DETERMINANTE.\n\tPresencia de marcadores comunes y ausencia de marcadore específicos hasta la fecha.')
             
             if "SLC6A4" in genes_seleccionados_aeg:
-                archivo_salida.write('\n\t\tEl gen SLC6A4 es común a TDM, TOC, Esquizofrenia y TAG.')
+                archivo_salida.write('\n\t\tEl marcador SLC6A4 es común a TDM, TE, TOC y TAG.')
            
             archivo_salida.write('\n\nFin de formulario\n')
             archivo_salida.close()
